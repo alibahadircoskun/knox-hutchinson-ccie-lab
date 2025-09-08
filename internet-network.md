@@ -82,39 +82,24 @@ router bgp 65005
 - Balancing route filtering with connectivity requirements
 - Traffic engineering with BGP attributes
 
-### Authentication Issues
-- Different passwords for different sub-AS relationships
-- Troubleshooting authentication failures
-
 ## Verification Commands Used
 
 ```cisco
 ! BGP Status and Neighbors
 show ip bgp summary
 show ip bgp neighbors 172.30.103.100
-show ip bgp neighbors 172.30.200.200
 show ip bgp confederation
 
 ! Route Information  
 show ip bgp
-show ip bgp 100.100.100.100
-show ip bgp 120.120.120.120
-show ip bgp 130.130.130.130
 show ip bgp 141.141.141.141
 show ip route bgp
-
-! Specific Verifications
-show ip bgp regexp ^100$
-show ip bgp regexp ^200$  
-show ip bgp regexp ^300$
-show ip bgp regexp ^400$
 
 ! Troubleshooting
 debug ip bgp updates
 clear ip bgp * soft out
 clear ip bgp 172.30.103.100 soft out
 ping 100.100.100.100 source loopback0
-ping 120.120.120.120 source loopback0
 ```
 
 ## Lessons Learned
