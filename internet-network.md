@@ -65,7 +65,7 @@ neighbor 143.143.143.143 route-map LOOP-COMM out
 
 ### Confederation Design
 - Established peerings between sub-ASNs (65005 and 65006) to scale ASN 400  
-- Verified authentication across confederation boundaries (`CISCO` and `CISCO1`)  
+- Verified authentication across confederation boundaries 
 - Differentiated between the confederation identifier (400) and sub-AS numbers  
 - Confirmed that external ASNs only see ASN 400, maintaining a clean external topology view  
 - Ensured loopback reachability across the confederation using update-source and proper IGP support  
@@ -78,8 +78,8 @@ neighbor 143.143.143.143 route-map LOOP-COMM out
 - Prevented specific routes (like ISP-400-1 loopback) from leaving the local AS for policy compliance  
 
 ### Operational Practices
-- Leveraged **BGP soft reset** to apply new policies without dropping sessions  
-- Validated sessions with `show ip bgp confederation` to ensure proper hierarchy  
+- Leveraged BGP soft reset to apply new policies without dropping sessions  
+- Validated sessions with show ip bgp confederation to ensure proper hierarchy  
 - Used prefix-lists and route-maps for granular filtering instead of broad ACLs  
 - Incorporated TTL security to mitigate spoofing and protect eBGP sessions  
 - Structured configuration with clear comments for easier troubleshooting and review  
