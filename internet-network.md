@@ -15,7 +15,7 @@ Configured complex BGP relationships across multiple autonomous systems with adv
 - ISP-400-1 & ISP-400-2: Sub-AS 65005 with authentication "CISCO"
 - ISP-400-3 & ISP-400-4: Sub-AS 65006 with authentication "CISCO1"
 
-### Advanced Features Implemented
+### Tasks
 1. eBGP relationships between directly connected neighbors in different ASNs
 2. ISP-300 neighbor verification (single-hop TTL security)
 3. Loopback advertisements into BGP
@@ -61,19 +61,30 @@ Preventing ISP-400-1 loopback from being advertised externally
 neighbor 143.143.143.143 route-map LOOP-COMM out
 ```
 
-## Challenges Encountered
+## Implementation Notes
 
-### Confederation Complexity
-- Establishing proper peer relationships between sub-ASNs
-- Ensuring authentication worked correctly across confederation boundaries
-- Understanding confederation identifier vs. sub-AS numbers
+### Confederation Design
+- Established peerings between sub-ASNs (65005 and 65006) to scale ASN 400  
+- Verified authentication across confederation boundaries (`CISCO` and `CISCO1`)  
+- Differentiated between the confederation identifier (400) and sub-AS numbers  
+- Confirmed that external ASNs only see ASN 400, maintaining a clean external topology view  
+- Ensured loopback reachability across the confederation using update-source and proper IGP support  
 
-### Route Advertisement Control
-- Implementing selective advertisement policies
-- Balancing route filtering with connectivity requirements
-- Traffic engineering with BGP attributes
+### Route Policy Control
+- Applied selective advertisement policies to simulate realistic ISP filtering  
+- Balanced route filtering with the need to maintain end-to-end reachability  
+- Used BGP attributes (AS-path prepending, local preference, MED) for traffic engineering and path control  
+- Summarized loopbacks from ASN 400 into ASN 200/300 for scalability and reduced table size  
+- Prevented specific routes (like ISP-400-1 loopback) from leaving the local AS for policy compliance  
 
-## Verification Commands Used
+### Operational Practices
+- Leveraged **BGP soft reset** to apply new policies without dropping sessions  
+- Validated sessions with `show ip bgp confederation` to ensure proper hierarchy  
+- Used prefix-lists and route-maps for granular filtering instead of broad ACLs  
+- Incorporated TTL security to mitigate spoofing and protect eBGP sessions  
+- Structured configuration with clear comments for easier troubleshooting and review  
+
+## Verification Commands
 
 ```cisco
 ! BGP Status and Neighbors
@@ -93,7 +104,7 @@ clear ip bgp 172.30.103.100 soft out
 ping 100.100.100.100 source loopback0
 ```
 
-## Lessons Learned
+## Design Principles
 
 1. **Confederation Benefits**: Solves iBGP full-mesh scaling issues while maintaining external AS appearance
 2. **Route Filtering Precision**: Prefix-lists and route-maps provide granular control over advertisements
