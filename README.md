@@ -3,6 +3,8 @@
 ## Lab Overview
 This repository documents my journey through Knox Hutchinson's comprehensive CCIE lab topology. The lab covers enterprise-level networking technologies and represents a realistic service provider network with multiple customer sites.
 
+![CCIE Lab Topology](images/topology.png)
+
 ## Topology
 The lab consists of several key components:
 - **Internet Network**: Multiple ISPs (ASN 100, 200, 300, 400) with complex BGP relationships
