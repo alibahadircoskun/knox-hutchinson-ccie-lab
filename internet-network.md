@@ -29,9 +29,9 @@ Configured complex BGP relationships across multiple autonomous systems with adv
 11. Specific routing (ISP-400-2's loopback via ISP-300)
 12. BGP soft reset procedures
 
-## Key Configuration Examples
+## Configuration Examples
 
-### BGP Confederation Setup
+### BGP Confederation
 ```cisco
 ! ISP-400-1 (Sub-AS 65005)
 router bgp 65005
@@ -48,7 +48,7 @@ router bgp 65006
  neighbor [peer-ip] password CISCO1
 ```
 
-### TTL Security (ISP-300)
+### TTL Security
 ```cisco
 router bgp 300
  neighbor [peer-ip] ttl-security hops 1
