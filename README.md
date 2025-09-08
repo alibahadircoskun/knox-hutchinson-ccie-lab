@@ -1,4 +1,4 @@
-# CCIE Service Provider Lab
+# CCIE Lab
 
 ## Lab Overview
 This repository documents my journey through Knox Hutchinson's comprehensive CCIE lab topology. The lab covers enterprise-level networking technologies and represents a realistic service provider network with multiple customer sites.
