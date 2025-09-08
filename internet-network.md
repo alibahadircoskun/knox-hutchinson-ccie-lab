@@ -36,38 +36,29 @@ Configured complex BGP relationships across multiple autonomous systems with adv
 ISP-400-1 (Sub-AS 65005)
 router bgp 65005
  bgp confederation identifier 400
- bgp confederation peers 65006
- neighbor [peer-ip] remote-as 65006
- neighbor [peer-ip] password CISCO
- 
-ISP-400-3 (Sub-AS 65006)  
-router bgp 65006
- bgp confederation identifier 400
- bgp confederation peers 65005
- neighbor [peer-ip] remote-as 65005
- neighbor [peer-ip] password CISCO1
+ bgp confederation peers 65006 
+ neighbor 142.142.142.142 remote-as 65005
+ neighbor 142.142.142.142 password CISCO
+ neighbor 142.142.142.142 update-source Loopback0
 ```
 
 ### TTL Security
 ```cisco
 router bgp 300
- neighbor [peer-ip] ttl-security hops 1
+ neighbor 172.30.103.100 ttl-security hops 1
 ```
 
 ### Route Summarization
 ```cisco
 ASN 200/300 summarizing ASN 400 routes
 router bgp [200|300]
- aggregate-address [summary-network] [summary-mask] summary-only
+ aggregate-address 128.0.0.0 224.0.0.0 summary-only
 ```
 
 ### Route Filtering
 ```cisco
 Preventing ISP-400-1 loopback from being advertised externally
-ip prefix-list FILTER_LOOPBACK deny [loopback-network]/32
-ip prefix-list FILTER_LOOPBACK permit 0.0.0.0/0 le 32
-router bgp 65005
- neighbor [external-peer] prefix-list FILTER_LOOPBACK out
+neighbor 143.143.143.143 route-map LOOP-COMM out
 ```
 
 ## Challenges Encountered
@@ -109,7 +100,3 @@ ping 100.100.100.100 source loopback0
 3. **Traffic Engineering**: Multiple techniques (AS-path prepending, local preference, MED) can influence path selection
 4. **Authentication Importance**: BGP passwords prevent unauthorized peering relationships
 5. **Soft Reset Value**: Allows policy changes without disrupting established sessions
-
----
-
-*Configuration files and verification outputs stored in respective directories*
