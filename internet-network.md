@@ -3,6 +3,8 @@
 ## Overview
 Configured complex BGP relationships across multiple autonomous systems with advanced features including confederations, route filtering, traffic engineering, and authentication.
 
+![Internet Network Topology](images/internet-network.png)
+
 ## Requirements Completed
 
 ### Basic BGP Setup
