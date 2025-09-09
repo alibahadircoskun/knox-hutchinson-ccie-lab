@@ -1,9 +1,9 @@
 # MPLS Network - OSPF and MPLS Configuration
 
-![MPLS Network Topology](images/mpls-network.png)
-
 ## Overview
 Configured OSPF Area 12.34.5.0 as the IGP foundation for the MPLS network, implementing advanced OSPF features including authentication, BFD, and OSPFv3. Enabled MPLS across all core routers to prepare for L3VPN services.
+
+![MPLS Network Topology](images/mpls-network.png)
 
 ### OSPF Configuration
 1. OSPF Area 12.34.5.0 between all MPLS routers (R1, R2, R3, R4, R5)
