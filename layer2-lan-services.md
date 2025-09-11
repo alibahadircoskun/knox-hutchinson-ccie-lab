@@ -3,6 +3,8 @@
 ## Overview
 Implemented comprehensive Layer 2 switching technologies across two customer sites, focusing on high availability, VLAN management, spanning tree optimization, and network monitoring. Configured advanced features including FHRP, VTP v3, MST, port channels, and RSPAN.
 
+![Layer 2 Technologies Topology](images/l2-services.png)
+
 ## Requirements Completed
 
 ### Customer 2 Site 4 - High Availability Configuration
