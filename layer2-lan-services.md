@@ -233,4 +233,3 @@ show interfaces ethernet1/3 switchport
 - Multiple verification points ensure comprehensive network visibility
 
 
-*Configuration files and verification outputs stored in respective directories*
