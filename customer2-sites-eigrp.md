@@ -3,6 +3,8 @@
 ## Overview
 Configured EIGRP Named Mode across multiple Customer 2 sites with advanced routing features including traffic engineering, fast convergence, loop-free alternatives, route summarization, and stub configurations. Implemented both EIGRP Named Mode (ASN 50) and Classic Mode (ASN 20) depending on site requirements.
 
+![Customer 2 Topology](images/customer2-eigrp.png)
+
 ## Tasks
 
 ### Customer 2 Site 1 - EIGRP Named Mode ASN 50
