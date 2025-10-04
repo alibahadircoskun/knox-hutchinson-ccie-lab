@@ -195,15 +195,8 @@ show ip igmp membership
 ! BSR and RP Verification
 show ip pim rp
 show ip pim bsr-router
-show ip pim rp-hash [group]
 
 ! Multicast Traffic Verification
 show ip mroute active
 show ip pim traffic
-mtrace [source] [group] [receiver]
-
-! Layer 2 IGMP Snooping (SW21)
-show ip igmp snooping
-show ip igmp snooping groups
-show ip igmp snooping mrouter
 ```
